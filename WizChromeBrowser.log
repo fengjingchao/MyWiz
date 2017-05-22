@@ -3536,3 +3536,4 @@
 [0522/183932:WARNING:raw_channel_win.cc(532)] WriteFile: 管道正在被关闭。 (0xE8)
 [0522/183938:ERROR:ipc_channel_win.cc(217)] pipe error: 109
 [0522/194616:INFO:CONSOLE(0)] "Mixed Content: The page at 'https://note.wiz.cn/pages/client/welcome.html?v=4.5.9.0&user_type=free' was loaded over HTTPS, but requested an insecure image 'http://cdn.wiz.cn/wp-content/uploads/2017/05/new-sync-banner-1.png'. This content should also be served over HTTPS.", source: https://note.wiz.cn/pages/client/welcome.html?v=4.5.9.0&user_type=free (0)
+[0522/233024:INFO:CONSOLE(0)] "Mixed Content: The page at 'https://note.wiz.cn/pages/client/welcome.html?v=4.6.5.0&user_type=free' was loaded over HTTPS, but requested an insecure image 'http://cdn.wiz.cn/wp-content/uploads/2017/05/new-sync-banner-1.png'. This content should also be served over HTTPS.", source: https://note.wiz.cn/pages/client/welcome.html?v=4.6.5.0&user_type=free (0)
