@@ -1,0 +1,4 @@
+≈‰÷√∑Ω∑®£∫
+
+git config --global user.email "1433768009@qq.com"
+git config --global user.name "fengjingchao"

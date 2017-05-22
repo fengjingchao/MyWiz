@@ -1,0 +1,142 @@
+Set集合(无序性)
+1.其功能与Collection完全一致
+2.HashSet
+   01底层数据结构是Hash表
+   02hashCode的元素唯一
+  HashSet是如何保证元素的唯一性的?
+  	是通过元素的两个方法:hashCode和equals来完成的
+  	如果元素的hashCode值相同,才会判断equals是否为true
+  	如果元素的hashCode值不同,就不会调用equals
+  	
+  	同时,对于判断元素是否存在contains,以及删除remove等操作,依赖的方法也是hashCode和equals方法
+   	而ArrayList判断元素是否相同,完全依赖于equals
+   	
+   	重写hashCode(使与对象属性有关) equals方法 Ctrl+alt+s  f
+            *31质数,2<<5-1,不大不小
+            
+    LinkedHashSet
+    	底层是链表结构实现的   ,是set集合中唯一存取一致的子类
+    	    
+3.TreeSet
+	01.底层二叉树结构
+	02.不重复且有序(按大小)
+	03.自然顺序:a通过元素对象所在類实现 Comparable 接口,b并重写它的compareTo()方法来实现排序----------------------------
+	 a..public class Student implements Comparable<Student>{
+	 b..public int compareTo(Student s){	 
+	    return (this.age-s.age)==0?this.name.compareTo(s.name):(this.age-s.age);
+		}
+	
+	04.compaeTo返回值0,负数,正数时,顺序是1,正序,倒叙
+	05.比较器方法:通过构造函数中传入比较器:a一个实现Comparator<>的类,b重写compare方法----------------------
+		a..TreeSet<String> t=new TreeSet<>(new Comparator<String>() {
+		b..public int compare(String s1,String s2){
+				int num=s1.compareTo(s2);
+				return num==0?1:num;
+			}
+		});//这是匿名内部类
+	
+4.泛型(定义时如果类型不确定可以考虑用泛型,在new对象时,一定要将类型具体化)----------------------------------------
+	01.好处.提高安全性,省去强转的麻烦
+	02.作用:限制集合的元素类型
+	
+	03格式:类名<引用数据类型>  class Demo<Q>
+	04.编译后生成的class文件中泛型被自动擦除
+	05.方法泛型
+		最好与类的泛型一致
+		如果不一致,需要在方法上声明public<方法泛型>
+		静态方法必须声明自己的泛型(他优先于对象存在)
+	public static <W> void print()
+	06.泛型接口
+    a. interface Inter<T>
+     	 {show(T t);}
+    b1. class Demo implements Inter<String>
+ 		 {show(String t);}
+	b2 class Demo<T> implements Inter<T>
+ 		 {show(String t);}
+	07.<?>泛型通配符
+		List<?> li=new ArrayList<String>();
+       <? extends E> E及其子类
+       <? super E> E及其父类
+5.增强for(jdk1.5)
+	for (元素数据类型 变量名:数组对象或集合对象)
+	
+	遍历数组内部使用常规for循环遍历
+	遍历自定义集合内部使用迭代器
+	
+	快捷操作fore alt+/
+
+6.01.普通for循环删除List特定元素的相邻漏删问题???删Set集合呢?
+  02.迭代器删除  注意并发修改异常
+  03.增强for循环   不能删除只能遍历,因为底层是迭代器
+7.静态导入(jdk1.5  开发不用,看懂即可)
+	导入静态方法
+	格式:import static 包名.类名.方法名;
+	注意:如果本类中有该方法,调用时还要加前缀,不加前缀会优先调用本类中同名方法
+8.可变参数(jdk1.5)----------------
+	格式:数据类型...变量名
+                变量名代表数组
+      	可变参数后不可以放参数
+
+9. asList(jdk1.5)-----
+    数组转集合--其长度固定--不可以对集合进行增删操作-------
+    String[] arr={"a","b","c"};
+    List<String> li=Arrays.asList(arr);
+            如果是int[](基本数据类型)就会当做一个元素存入集合
+            可以用Integer[](他的包装类)来解决这个问题
+    创建固定长度列表:List<String> li=Arrays.asList("as","bs","cs","ds");
+10.集合转数组,加泛型------------
+	String[] arr=list.toArray(new String[0]);//长度小于等于长度-1,否则,多余的为null
+	String[] arr=list.toArray(new String[]{});
+
+11.集合的嵌套
+	定义一个学科,包含两个班级,班级里包含学生,然后遍历学科,输出每一个学生
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

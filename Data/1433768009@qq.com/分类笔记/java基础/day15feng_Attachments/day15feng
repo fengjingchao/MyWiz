@@ -1,0 +1,73 @@
+为什么打印toArray数组元素打印的不是地址值
+
+集合框架,数据结构(存储方式)
+1.数组与集合的区别\
+	01数组可以存储基本数据类型和引用数据类型,但一个类型的数组只可以存储一种数据类型的元素
+	02集合只可以存储引用数据类型 ,但基本数据类型可以自动装箱, 所以集合的存储面较宽
+	03数组长度固定,集合长度可自动变化
+	04如果元素个数固定用数组,元素数目不固定推荐用集合,可以
+2.相同点:对引用数据类型存储的都是地址值	
+
+3.Collection单列集合的根接口(util)---------增删查转 判断 迭代
+子接口List,Set
+01.List(有序,有索引,可以存储重复):子接口:Aray(数组实现)LinkedList(链表实现)Vector(数组实现)
+02.Set(无序,无索引,不可以存储重复):HashSet(哈希算法) TreeSet(二叉树接口)
+  
+
+4.	添加功能add(Object o);  //注意添加的对象自动类型提升为Object:可接受任意对象
+     01.List集合,返回值都是true
+     02.set集合,当add重复元素返回false
+     03.ArrayList重写了toString()方法
+5.其他方法:remove(Object o);  clear();  contains(Object o);  isEmple();size()长度
+         
+6.集合的toArray方法
+	Collection c=new ArrayList();
+     Object[] arr=c.toArray();
+	
+7.使用集合的步骤:
+  01创建容器	
+  02创建元素对象
+  03添加元素对象
+  04遍历等操作
+  
+ 8.  All方法
+  01.c1.addAll(Collection c2);//将c2中的所有元素添加进c1
+  02.c1.removeAll(c2);//删除交际部分
+  03.containAll(c2);判断是否包含,不区分重复字母
+  04.c1.retainAll(c2);取交集//如果c1改变就返回true,不变就返回false
+9.迭代器Iterator
+   迭代器的使用及方法
+   01.Iterator it=c.Iterator();	 //生成集合的迭代器
+   02.boolean b=it.hasNext();    //判断迭代器中是否有元素
+   03.Object obj=it.next();      //获取迭代器中下一个元素值	
+   04.while循环输出,即遍历 集合中元素     
+   05.it.remove() ;              //移除迭代器返回的最后一个元素从迭代器指向的集合 
+10.List
+   01.add(String str) ;  
+   02.add(int index,E element); 
+   03.remove(int index);
+   04.get(int index);
+   05.set(int index,E element);
+11.ListIterator     
+   
+   hasPrivious();
+   privious();
+   add();
+   
+   set(E e);
+ 12.Vector
+   addElements()
+   hasMoreElements()
+   nextElements()
+13.底层数组实现与链式实现的比较
+   01.数组实现
+       查询修改快,增加删除慢
+       Vector 线程安全 效率低  查询慢于ArrayList
+       ArrayList线程不安全 效率高
+   02.链式实现   
+       查询修改慢,增加删除快
+       LinkedList线程不安全 效率高
+   
+   
+   
+   

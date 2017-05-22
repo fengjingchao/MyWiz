@@ -1,0 +1,98 @@
+1.StringBuffer字符串缓冲区与String的区别
+
+2.StringBuffer构造函数
+       
+   StringBuffer()  //容量16
+   StringBuffer(int capacity)   //指定容量
+   StringBuffer(String str)    // 将String转化 容量=str的length+16
+2.5 方法     int capacity()  容量
+        length()    字符个数 
+ 3.StringBuffer append(String str) 在末尾添加,返回自身 ???
+ 
+ 4.StringBuffer重写了Object的toString方法  返回其属性 
+ 
+ 5.StringBuffer insert(int offset,String str) 在指定位置添加 返回自身
+ 
+ 6.StringBuffer delete(int start,int end)   清除 返回自身
+   StringBuffer deleteCharAt(int index) 返回自身
+   
+ 7.StringBuffer replace(int start,int end,String str)  替换 返回自身
+ 
+ 8.StringBuffer reverse()//反转 返回自身
+ 
+ 9.String substring(int start)
+   String substring(int start,int end)
+   
+ 10.StringBuilder(jdk1.5)与StringBuffer与String的区别  
+          可变性,线程安全性
+   
+ 11.基本数据类型参数值传递     不改变其值
+    引用数据类型参数值传递          改变其值
+   String类虽然是引用数据类型,但他当做参数传递时,和基本数据类型一样
+   StringBuffer 与引用数据类型一样
+   
+12. Arrays数组工具类   方法全静态
+	String toString(int[] arr)
+	int[] Sort(int[] arr)
+	int binarySearch(int[] arr, int key)
+   
+   
+13.基本类型的包装类
+   Integer类   static
+   		toBinaryString(int a)
+   		toOctalString(int a)
+   		toHexString(int a)
+   		parseInt(str);
+   		
+   		MAX_VALUE
+   		MIN_VALUE
+   		
+   		Integer(int i)
+   		Integer(String str)//数字形式的字符串
+   
+   character类
+   Byte 
+   Short
+   Long
+   Float
+   Double
+   Boolean       
+   
+ 将int ---String\
+  01.i+""         //常用
+  02.valueOf(i)   //常用
+  03.new Integer(i).toString();
+  04.Integer.toString(i);
+将String ---int
+  String s;  
+  02.new Integer(s).intValue();
+  03.integer.parseInt(s
+  ); //8种基本数据类型中只有char没有parseXxx   //常用
+  
+  
+自动拆装箱(jdk5以后)
+	自动装箱:Integer i1=100; ()
+	自动拆箱 :int i2=i1;
+
+  面试题: byte -128到127之间自动装箱就不会创建新对象,而是从常量池中获取地址值,超出该范围就会创建新对象
+Integer ig1=new Integer(127);
+Integer ig2=new Integer(127);
+ig1==ig2;
+Integer ig3=new Integer(128);
+Integer ig4=new Integer(128);
+ig3!=ig4;
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ 

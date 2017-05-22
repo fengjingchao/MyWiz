@@ -1,0 +1,50 @@
+1.Map 双列集合
+  Collection 单列集合  add方法底层依赖Map的put方法
+2.Map :一个键只能有一个值
+	构造函数HashMap<K,V>
+	3.方法:put(K key , V value)  返回被覆盖的值,没有返回null
+		  remove(key); 返回key对应的值
+		  values():返回此映射所包含的所有value的Collection<>集合
+		  keySet():返回此映射所包含的所有key的Set<>集合
+		  entrySet():返回映射的对应对象Map.Entry<K,V>的Set集合
+3.遍历Map：
+	 01.通过keySet方法获取Key的Set集合,对Set进行遍历(iterator或forech),通过get方法得到key对应的value
+	 02.通过entrySet方法将键值映射封装成Map.Entry<K,V>对象,并存放在Set集合中,
+	          并同过Map.Entry的getKey与getValue方法获取键和值
+4.Map.Entry<K,V>
+	 boolean equals(Object o)   比较指定对象与此项的相等性。            
+	 K getKey()   返回与此项对应的键	         
+	 V getValue()    返回与此项对应的值。	       
+	 int hashCode()  返回此映射项的哈希码值。	         
+	 V setValue(V value)  用指定的值替换与此项对应的值（可选操作）。 
+5.HashMap:保证元素唯一:重写自定义类HashCode和equals方法	
+          LinkedHashMap:存取一致	         
+  TreeMap:需要在构造中传入比较器,或对象实现Comparable,才能决定元素唯一性及排序		
+    	
+6.集合嵌套	
+
+7.面试题:HashMap与Hashtable
+
+     共同点:底层hash算法
+     区别:
+	HashMap线程不安全,效率高,jdk1.2;可以存储null键和值
+	Hashable线程安全,效率低,jdk1.0;不可以存储null键和值
+
+
+8.Collections 工具类 方法静态   构造私有
+
+	方法:sort(List list)  根据元素的自然顺序 对指定列表按升序进行排序。
+	    sort(List<T> list, Comparator<? super T> c) 根据指定比较器产生的顺序对指定列表进行排序。
+		binarySearch(List<? extends Comparable<? super T>> list, T key) 使用二分搜索法搜索指定列表，以获得指定对象。
+		max(Collection<? extends T> coll) 根据元素的自然顺序，返回给定 collection 的最大元素。
+	    min(Collection<? extends T> coll) 根据元素的自然顺序 返回给定 collection 的最小元素。
+		reverse(List<?> list) 反转指定列表中元素的顺序。
+		shuffle(List<?> list) 使用默认随机源对指定列表进行置换。
+
+
+
+
+
+
+
+

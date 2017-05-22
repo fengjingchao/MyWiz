@@ -1,0 +1,167 @@
+一.异常
+   Throwable
+	-------Error
+	-------Exception
+		   -----------运行时异常(RuntimeException):程序员犯的错误,不需要声明,也不需要处理异常
+		   -----------编译时异常:未雨绸缪,必须处理,否则编译不能通过
+
+1.异常 的处理方式:
+	 01.try catch... finally
+		try catch...
+		try finally 
+
+	格式:try{可能出现异常的代码}
+		catch(try中出现的异常类型 变量){处理语句;}
+		...
+	注意:当出现多个异常时,捕捉父类异常的catch要放后面	,否则后面
+	jdk1.7 :一个catch可以捕获多个异常之间用|隔开
+
+	02.throws
+
+	03.Throwable
+	   方法:String getMassage(); 返回异常信息
+	     String toString(); 返回异常类名和异常信息
+	     printStackTrace();返回异常类名和异常信息,以及出现的异常位置
+2.自定义异常
+	01.继承Exception或RuntimeException
+	02.重写父类构造方法
+	03.new时通过构造传入自定义massage
+3.抛出异常的注意事项	
+		01子类重写父类的方法时,子类必须抛出父类方法相同的异常或父类异常的子类 
+		02如果父类方法抛出多个异常,子类重写父类方法时,只能抛出相同的异常,或父类异常的子集
+		03如果父类方法没有抛出异常,子类重写时,也不能抛出异常,只能try,catch
+
+二.File类
+  1. 构造:
+	File(File parent, String child) 根据 parent 抽象路径名和 child 路径名字符串创建一个新 File 实例。
+	File(String pathname) 通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例。
+	File(String parent, String child) 根据 parent 路径名字符串和 child 路径名字符串创建一个新 File 实例。
+	//File(URI uri) 通过将给定的 file: URI 转换为一个抽象路径名来创建一个新的 File 实例。
+
+  2.方法	
+创建:createNewFile
+	mkdir
+	mkdirs
+
+改删:renameTo(File file)
+	delete
+
+判断:isDirectory()
+	isFile()
+	exists()
+	canRead()   windows系统认为所有文件都是可读的
+	canWrite()
+	isHidden()
+
+设置:setReadable(true/false)
+	setWritable()true/false)
+
+获取:getAbsolutePath()   获取绝对路径
+	getPath()   获取构造方法中传入的路径
+	getName()  返回此路径名表示文件的名字
+	length()   返回此路径名表示的文件的长度(字节数)
+	lastModified()  返回此路径名表示的文件最后一次被修改的时间
+	list()   获取文件或文件对象的数组
+	listFiles()获取目录下的File的数组
+3. 过滤器 FilenameFilter接口
+  	/**
+	 * 需求：判断E盘目录下是否有后缀名为.jpg的文件，如果有，就输出该文件名称
+	 */
+	public static void main(String[] args) {
+		
+		File dir=new File("F:\\图像\\星");
+		String[] arr=dir.list(new FilenameFilter() {
+			
+			@Override
+			public boolean accept(File dir, String name) {
+				File file=new File(dir,name);
+				return file.isFile()&&file.getName().endsWith(".jpg");
+			}
+		});
+		for (String string : arr) {
+			System.out.println(string);
+		}
+		
+	}		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   

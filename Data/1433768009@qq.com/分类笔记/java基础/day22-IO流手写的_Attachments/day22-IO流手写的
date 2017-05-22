@@ -1,0 +1,136 @@
+序列化流
+SequenceInputStream(InputStream in1, InputStream in2)
+SequenceInputStream(Enumeration en)
+	Vector<InputStream>  ve = new Vector();
+	ve.add(new FileInputStream("1.txt"));
+	ve.add(new FileInputStream("2.txt"));
+	Enumeration en = ve.elements();
+
+内存输出流：ByteArrayOutputStream
+FileInputStream fis = new FileInputStream("a.txt");
+ByteArrayOutputStream bos = new ByteArrayOutputStream();
+int by = -1;
+while((by=fis.read())!=-1){
+	bos.write(by);
+}
+fis.close();
+System.out.println(bos.toString());
+
+
+随机访问流:RandomAccessFile
+RandomAccessFile raf =  new RandomAccessFile("a.txt","rw");
+raf.seek(10);
+raf.write(97);
+raf.close();
+
+对象操作流:ObjectInputStream / ObjectOutputStream
+ 
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("obj.txt"));
+oos.writeObject(new Person("林青霞", 26));			//这个Person类，必须实现Serializable
+oos.close();
+
+
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("obj.txt"));
+Object obj = ois.readObject();
+ois.close();
+Person p = (Person)obj;
+System.out.println(p);
+
+
+数据输入输出流：DataInputStream、DataOutputStream
+ DataOutputStream dos = new DataOutputStream（new FileOutputStream("dos.txt")）；
+dos.writeInt(50);
+dos.close();
+
+DataInputStream dis = new DataInputStream( new FileInputStream("dos.txt")  );
+int i = dis.readInt();
+System.out.println("i="+i);
+
+打印流：PrintStream、PrintWriter
+ 
+PrintWriter pw = new PrintWriter（new FileOutputStream("pw.txt"), true）；
+pw.println("hello");
+pw.close();
+
+PrintStream ps = new PrintStream （new FileOutputStream("pw.txt"), true）；
+pw.println("hello");
+pw.close();
+
+标准输入输出流:System.in/System.out
+
+System.setIn(new FileInputStream("a.txt"));
+System.setOut(new PrintStream("b.txt"));
+
+int by = -1;
+while((by=System.in.read())!=-1){
+	System.out.write(by);
+	System.out.flush();
+}
+System.out.close();
+System.in.close();
+
+
+两种方式实现键盘录入 ,BufferedReader、Scanner
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String line = br.readLine();
+
+Scanner sc = new Scanner(System.in);
+String line = sc.nextLine();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

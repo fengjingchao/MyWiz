@@ -1,0 +1,8 @@
+http://www.jb51.net/os/windows/210388.html
+
+配置的地址必须是可以访问
+include = defaults.properties
+git.repositoriesFolder = D:\git_Repositories   //这个仓库地址
+server.httpPort = 10101   ///端口号
+server.httpBindInterface = 169.254.214.162  //这里必须 可以访问到的地址,不能配127.0.0.1
+server.httpsBindInterface = localhost
