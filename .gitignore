@@ -1,0 +1,10 @@
+/dumps/*
+/.git/*
+/Photos/*
+/temp/*
+/templates/*
+/Update_x86/*
+toolbars.xml
+Wiz.log
+Wiz.xml
+WizChromeBrowser.log
